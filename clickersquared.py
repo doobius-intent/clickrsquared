@@ -4,8 +4,8 @@ window1= tk.Tk()
 window1.title("Clicker Squared")
 window1.geometry('1000x600')
 window1.configure(bg="lightblue")
-lbl1 = tk.Label(window1, text="WELCOME TO CLICKER SQUARED")
-lbl1.pack()
+lbl = tk.Label(window1, text="WELCOME TO CLICKER SQUARED")
+lbl.pack()
 
 counter1 = 20
 
