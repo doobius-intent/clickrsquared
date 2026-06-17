@@ -1,4 +1,6 @@
 import tkinter as tk
+import time
+from time import sleep
 
 window1= tk.Tk()
 window1.title("Clicker Squared")
@@ -41,11 +43,23 @@ button1 = tk.Button(window1,
 
 button1.pack(side=tk.LEFT)
 
+clickcost = clickboost * 2
+
 def upgradeclicked():
-    global clickboost
-    clickboost *= 2
     global counter1
-    counter1 -= int(clickboost)
+    global upgradedisplay
+    if counter1 <= 0:
+        button2.config(text="NOT ENOUGH CLICKS")
+        button2.config(fg="red")
+        time.sleep(1)
+        button2.config(text="upgrade... (exponential)")
+        button2.config(fg="black")
+    else:
+        global clickboost
+        clickboost *= 2
+        global clickcost
+        counter1 -= int(clickboost)
+        lbl.config(text=f"Clicks: {counter1}")
 
 button2 = tk.Button(window1,
                     text="upgrade... (exponential)",
